@@ -1,8 +1,7 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 from random import randint
 import requests
-import re
 import os
 
 app = Flask(__name__)
@@ -10,10 +9,6 @@ app = Flask(__name__)
 TOKEN = os.environ.get('TOKEN')
 BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 group_chat_id = int(os.environ.get('group_chat_id'))
-
-@app.route("/", methods = ["GET"])
-def index():
-	return render_template("index.html")
 
 @app.route("/update", methods = ["POST"])
 def update():
@@ -51,8 +46,6 @@ def update():
 
 		if 'text' in data['message'] and (data['message']['text'] == '/rules') or (data['message']['text'] == '/rules@Alfredcodex_bot'):
 			r = requests.post(BASE_URL + "sendMessage", data={'chat_id': group_chat_id, 'text': "There's a desktop and web client for Telegram so that you can stay updated everywhere. \n\nWe keep track of all members:\n\nhttp://codex.subhrajitpy.me\n\nAdd your names:\nhttps://github.com/SubhrajitPrusty/codex-github/issues/17\n\nSome channels and groups that you can utilise on telegram.\n\n@linux_group\n@thedevs\n@pythongroup\n@python\n@science\n@theprogrammingartgroup\n@TechGuide\n@fullstackbroadcast\n@linuxgram\n@techbinder\n@javaebooks\n@theprogrammingart\n@letstalkprogramming\n\nSome useful bots:\n@rextester_bot\n@gif\n@stickers\n@wiki\n@imdb\n\nBe respectful. Dont spam. Read the group rules.\n\nIn the @codexinit group \n\n* check someone's submission - ask them if they can make improvements \n\n* ask them what they're familiar with or working on\n\n* give them a suitable minor - but something that they have to learn in a short time period\nor if they seem weak with structuring code, then something that requires a good structure (a game would be one example)\n\nYou don't have to be an admin to review submissions."})
-
-
 	
 	return "200, OK"
 

@@ -25,14 +25,19 @@ def update():
 		if 'new_chat_member' in data.get('message'):
 			new_member_name = data.get('message').get('new_chat_member').get('first_name')
 			new_member_id = data.get('message').get('new_chat_member').get('id')
-			
+					
 			PAYLOAD = {
 			'chat_id': GROUP_CHAT_ID,
 			'text':  "Welcome to CODEX " + new_member_name + "!"
 			}
 
+			PAYLOAD_FOR_USER = {
+			'chat_id': new_member_id,
+			'text': RULES
+			}
+
 			r = requests.post(BASE_URL+ "sendMessage", data=PAYLOAD)
-			r = requests.post(BASE_URL+ "sendMessage", data=RULES)
+			r = requests.post(BASE_URL+ "sendMessage", data=PAYLOAD_FOR_USER)
 			
 		
 		if 'text' in data.get('message'): 

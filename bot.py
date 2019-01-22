@@ -37,20 +37,20 @@ def update():
 		if 'text' in data.get('message'): 
 			if (data.get('message').get('text')== '/xkcd') or (data.get('message').get('text') == '/xkcd@Alfredcodex_bot'):
 			
-			random = randint(1, 2100)
-			i = requests.get("https://xkcd.com/"+str(random)+"/info.0.json")
-			if i.status_code == 200:
-				image = i.json()
-				url = image.get("img")
-				text = image.get("alt")
+				random = randint(1, 2100)
+				i = requests.get("https://xkcd.com/"+str(random)+"/info.0.json")
+				if i.status_code == 200:
+					image = i.json()
+					url = image.get("img")
+					text = image.get("alt")
 				
-				PAYLOAD = {
-				'chat_id': GROUP_CHAT_ID,
-				'photo': url,
-				'caption':text 
-				}
+					PAYLOAD = {
+					'chat_id': GROUP_CHAT_ID,
+					'photo': url,
+					'caption':text 
+					}
 
-				r = requests.post(BASE_URL + "sendPhoto", data=PAYLOAD)
+					r = requests.post(BASE_URL + "sendPhoto", data=PAYLOAD)
 		
 		if 'text' in data.get('message'): 
 			if (data.get('message').get('text') =='/helpme') or (data.get('message').get('text') == '/helpme@Alfredcodex_bot'):

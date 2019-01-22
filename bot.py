@@ -24,7 +24,7 @@ def update():
 
 		if 'new_chat_member' in data.get('message'):
 			new_member_name = data.get('message').get('new_chat_member').get('first_name')
-			new_member_id = data.get('message').get('new_chat_member'),get('id')
+			new_member_id = data.get('message').get('new_chat_member').get('id')
 			
 			PAYLOAD = {
 			'chat_id': GROUP_CHAT_ID,

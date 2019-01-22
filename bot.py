@@ -28,7 +28,7 @@ def update():
 			
 			PAYLOAD = {
 			'chat_id': GROUP_CHAT_ID,
-			'text':  "Welcome to Codex " + New_member_name
+			'text':  "Welcome to Codex " + new_member_name
 			}
 
 			r = requests.post(BASE_URL+ "sendMessage", data=PAYLOAD)

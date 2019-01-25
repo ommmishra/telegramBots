@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 TOKEN = os.environ.get('TOKEN')
 BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-GROUP_CHAT_ID = int(os.environ.get('group_chat_id'))
+
 
 @app.route("/update", methods = ["POST"])
 def update():

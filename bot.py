@@ -18,8 +18,6 @@ def update():
 	data = request.get_json()
 	group_data = int(data.get('message').get('chat').get('id'))
 
-	if group_data == GROUP_CHAT_ID:
-
 		print("Working>>>>")
 
 		if 'new_chat_member' in data.get('message'):

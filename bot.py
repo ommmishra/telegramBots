@@ -18,7 +18,7 @@ def update():
 
 	GROUP_CHAT_ID = int(data.get('message').get('chat').get('id'))
 
-		print("Working>>>>")
+	print("Working>>>>")
 
 	if 'new_chat_member' in data.get('message'):
 		new_member_name = data.get('message').get('new_chat_member').get('first_name')

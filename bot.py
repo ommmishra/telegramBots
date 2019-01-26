@@ -9,7 +9,6 @@ app = Flask(__name__)
 
 TOKEN = os.environ.get('TOKEN')
 BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-GROUP_CHAT_ID = int(os.environ.get('group_id'))
 
 @app.route("/update", methods = ["POST"])
 def update():
@@ -17,8 +16,7 @@ def update():
 	print(request.get_json())
 	data = request.get_json()
 
-	if(GROUP_CHAT_ID = data.get('message').get('chat').get('id'))
-	group_data = int(data.get('message').get('chat').get('id'))
+	GROUP_CHAT_ID = int(data.get('message').get('chat').get('id'))
 
 		print("Working>>>>")
 

@@ -59,7 +59,7 @@ def update():
 					r = requests.post(BASE_URL + "sendPhoto", data=PAYLOAD)
 		
 		if 'text' in data.get('message'): 
-			if (data.get('message').get('text') =='/helpme') or (data.get('message').get('text') == '/helpme@Alfredcodex_bot'):
+			if (data.get('message').get('text') =='/helpm') or (data.get('message').get('text') == '/helpme@Alfredcodex_bot'):
 				
 				PAYLOAD = {
 				'chat_id': GROUP_CHAT_ID,
